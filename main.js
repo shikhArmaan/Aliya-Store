@@ -21,12 +21,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Use Promise.all to wait for all components to load
     Promise.all([
-        loadComponent('#header-placeholder', 'components/header.html'),
-        loadComponent('#hero-placeholder', 'components/hero.html'),
-        loadComponent('#about-placeholder', 'components/about.html'),
-        loadComponent('#products-placeholder', 'components/products.html'),
-        loadComponent('#contact-placeholder', 'components/contact.html'),
-        loadComponent('#footer-placeholder', 'components/footer.html')
+        // FIXED THESE LINES
+        loadComponent('#header-placeholder', 'header.html'),
+        loadComponent('#hero-placeholder', 'hero.html'),
+        loadComponent('#about-placeholder', 'about.html'),
+        loadComponent('#products-placeholder', 'products.html'),
+        loadComponent('#contact-placeholder', 'contact.html'),
+        loadComponent('#footer-placeholder', 'footer.html')
     ]).then(() => {
         // All components are loaded, now initialize scripts
         initializePageScripts();
@@ -51,7 +52,7 @@ function initializePageScripts() {
         });
     }
 
-    // --- NEW: Active Nav Link Logic ---
+    // Active Nav Link Logic
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
 
@@ -166,7 +167,7 @@ function initializePageScripts() {
     createFloatingButton('whatsappBtn', 'fab fa-whatsapp text-2xl', 'bg-green-500 hover:bg-green-600 text-white pulse-animation', 'bottom-6 right-6', () => window.open('https://wa.me/919876543210?text=Hi! I would like to know more about your bag parts.', '_blank'));
 
     // Scroll to Top Button
-    const scrollTopBtn = createFloatingButton('scrollTopBtn', 'fas fa-arrow-up text-xl', 'bg-primary hover:bg-secondary text-black', 'bottom-6 left-6 opacity-(-1) invisible', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const scrollTopBtn = createFloatingButton('scrollTopBtn', 'fas fa-arrow-up text-xl', 'bg-primary hover:bg-secondary text-white', 'bottom-6 left-6 opacity-0 invisible', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     
     window.addEventListener('scroll', () => {
         if (scrollTopBtn) {
